@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>org.apache.metron</groupId>
+    <artifactId>titan-dao</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <properties>
+        <java.version>1.8</java.version>
+
+        <!--<titan.version>1.1.0-SNAPSHOT</titan.version>-->
+        <!--<hbase.version>1.1.1</hbase.version>-->
+
+        <titan.version>0.5.4</titan.version>
+        <hbase.version>1.1.2</hbase.version>
+        <atlas.version>0.7-incubating</atlas.version>
+
+    </properties>
+    <dependencies>
+        <dependency>
+            <groupId>org.apache.atlas</groupId>
+            <artifactId>atlas-titan</artifactId>
+            <version>${atlas.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.thinkaurelius.titan</groupId>
+            <artifactId>titan-core</artifactId>
+            <version>${titan.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.thinkaurelius.titan</groupId>
+            <artifactId>titan-hbase</artifactId>
+            <version>${titan.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.hbase</groupId>
+            <artifactId>hbase-client</artifactId>
+            <version>${hbase.version}</version>
+        </dependency>
+    </dependencies>
+    <build>
+    <plugins>
+    <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.1</version>
+        <configuration>
+            <source>${java.version}</source>
+            <target>${java.version}</target>
+            <compilerArgument>-Xlint:unchecked</compilerArgument>
+        </configuration>
+    </plugin>
+    </plugins>
+    </build>
+</project>
