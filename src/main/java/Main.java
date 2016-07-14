@@ -23,11 +23,13 @@ public class Main {
     config.set("storage.backend", "hbase");
     config.set("storage.hostname", "node1");
     config.set("storage.hbase.table", "titan_0_5_4");
-    config.set("index.search.backend", "inmemory");
+    config.set("index.search.backend", "lucene");
+    config.set("index.search.directory", "/tmp/foo");
     TitanGraph graph = config.open();
 
     // use the management system
-    graph.getManagementSystem().set("index.search.backend", "inmemory");
+    graph.getManagementSystem().set("index.search.backend", "lucene");
+    graph.getManagementSystem().set("index.search.directory", "/tmp/foo");
     graph.getManagementSystem().commit();
 
     GraphOfTheGodsFactory.load(graph);
